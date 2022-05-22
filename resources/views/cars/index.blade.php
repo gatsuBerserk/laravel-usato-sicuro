@@ -39,10 +39,11 @@
                                     <a class="btn btn-primary" href="{{route("cars.show", $car->id)}}">Info</a>
                                 @if(Auth::check())
                                     <a class="btn btn-warning" href="{{route("cars.edit", $car->id)}}">Modifica</a> 
-                                    <form action="{{route("cars.destroy", $car)}}" method="POST">
+                                    <form action="{{route("cars.destroy", $car)}}" method="POST" class="delete" car-model={{$car->model}}>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"> Elimina </button>
+
                                     </form>
                                 @endif
                                 </div>
@@ -51,5 +52,21 @@
                         </div> 
                     </div> 
                 @endforeach
-    </div>     
+       </div>
+    </div>  
+@endsection
+
+@section('content')
+    <script>
+        const deleteForms = document.querySelectorAll('.delete');
+            deleteForms.forEach(singleForm => {
+                singleForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // § blocchiamo l'invio del form
+                    userConfirmation = window.confirm(`Sei sicuro di voler eliminare ${this.getAttribute('car-model')}?` );
+                    if (userConfirmation) {
+                        this.submit();
+                    }
+                })
+            });
+    </script>   
 @endsection
