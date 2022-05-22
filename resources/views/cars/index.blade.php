@@ -38,8 +38,12 @@
                                     <p class="card-text">{{$car->alimentazione}}</p>
                                     <a class="btn btn-primary" href="{{route("cars.show", $car->id)}}">Info</a>
                                 @if(Auth::check())
-                                    <a class="btn btn-warning" href="{{route("cars.show", $car->id)}}">Modifica</a> 
-                                    <a class="btn btn-danger" href="{{route("cars.show", $car->id)}}">Elimina</a> 
+                                    <a class="btn btn-warning" href="{{route("cars.edit", $car->id)}}">Modifica</a> 
+                                    <form action="{{route("cars.destroy", $car)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"> Elimina </button>
+                                    </form>
                                 @endif
                                 </div>
                             </div>

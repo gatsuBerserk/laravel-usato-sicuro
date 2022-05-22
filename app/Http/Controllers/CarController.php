@@ -83,9 +83,10 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car) 
     {
-        //
+        // $car= Car::findOrFail($id);
+        return view('cars.edit', compact('car'));
     }
 
     /**
@@ -95,9 +96,32 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Car $car)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            "image"=> "required",
+            'numero_telaio' => 'required',
+            'model' => 'required|min:3',
+            'porte' => 'required|integer|max:5|numeric',
+            'data_immatricolazione' => 'required|date',
+            'marca' => 'required|min:3',
+            'alimentazione' => 'required|min:3',
+            'prezzo' => 'required|numeric|min:4',
+        ]);
+        
+        $car->image=$data["image"];
+        $car->numero_telaio = $data["numero_telaio"];
+        $car->model = $data["model"]; 
+        $car->porte = $data["porte"];
+        $car->data_immatricolazione = $data["data_immatricolazione"];
+        $car->marca = $data["marca"];
+        $car->alimentazione = $data["alimentazione"];
+        $car->prezzo = $data["prezzo"];
+        $car->save();
+
+        return redirect()->route("cars.show", $car)->with('message', $car->model .' modified with success');
     }
 
     /**
@@ -106,8 +130,10 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+        $car->delete();
+        
+        return redirect()->route("cars.index",$car)->with('message', $car->model .' deleted with success');
     }
 }
