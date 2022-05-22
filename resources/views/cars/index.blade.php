@@ -54,7 +54,7 @@
                 @endforeach
        </div>
     </div>  
-@endsection
+@endsection 
 
 {{-- funzione spostata in app.js --}}
 {{-- @section('content')

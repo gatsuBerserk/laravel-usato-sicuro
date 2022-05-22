@@ -32,6 +32,8 @@ const app = new Vue({
 });
 
 
+
+//** delete single item car in db*/
 const deleteForms = document.querySelectorAll('.delete');
 deleteForms.forEach(singleForm => {
     singleForm.addEventListener('submit', function (event) {

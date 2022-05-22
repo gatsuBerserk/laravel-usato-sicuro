@@ -50,19 +50,21 @@ class CarController extends Controller
         ]);
         
         $car = new Car();
-            $car->image= $data["image"];
-            $car->numero_telaio= $data["numero_telaio"];
-            $car->model=$data["model"]; 
-            $car->porte=$data["porte"];
-            $car->data_immatricolazione=$data["data_immatricolazione"];
-            $car->marca=$data["marca"];
-            $car->alimentazione=$data["alimentazione"];
-            $car->prezzo=$data["prezzo"];
+            // $car->image= $data["image"];
+            // $car->numero_telaio= $data["numero_telaio"];
+            // $car->model=$data["model"]; 
+            // $car->porte=$data["porte"];
+            // $car->data_immatricolazione=$data["data_immatricolazione"];
+            // $car->marca=$data["marca"];
+            // $car->alimentazione=$data["alimentazione"];
+            // $car->prezzo=$data["prezzo"];
+            $car->fill($data);
+
             $car->save();
             
             
             
-            return redirect()->route("cars.show", $car->id);
+            return redirect()->route("cars.show", $car->id)->with("message", "Auto aggiunta correttamente");
     }
 
     /**
@@ -111,17 +113,20 @@ class CarController extends Controller
             'prezzo' => 'required|numeric|min:4',
         ]);
         
-        $car->image=$data["image"];
-        $car->numero_telaio = $data["numero_telaio"];
-        $car->model = $data["model"]; 
-        $car->porte = $data["porte"];
-        $car->data_immatricolazione = $data["data_immatricolazione"];
-        $car->marca = $data["marca"];
-        $car->alimentazione = $data["alimentazione"];
-        $car->prezzo = $data["prezzo"];
-        $car->save();
+        // $car->image=$data["image"];
+        // $car->numero_telaio = $data["numero_telaio"];
+        // $car->model = $data["model"]; 
+        // $car->porte = $data["porte"];
+        // $car->data_immatricolazione = $data["data_immatricolazione"];
+        // $car->marca = $data["marca"];
+        // $car->alimentazione = $data["alimentazione"];
+        // $car->prezzo = $data["prezzo"]; 
 
-        return redirect()->route("cars.show", $car)->with('message', $car->model .' modified with success');
+
+
+        $car->save($data);
+
+        return redirect()->route("cars.show", $car)->with('message',' Informazioni modificate con successo ');
     }
 
     /**

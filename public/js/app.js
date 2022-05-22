@@ -53647,7 +53647,8 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); //** delete single item car in db*/
+
 var deleteForms = document.querySelectorAll('.delete');
 deleteForms.forEach(function (singleForm) {
   singleForm.addEventListener('submit', function (event) {
