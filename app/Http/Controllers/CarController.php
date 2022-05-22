@@ -37,7 +37,20 @@ class CarController extends Controller
     public function store(Request $request)
     {   
         $data = $request->all();
+
+        $request->validate([
+            "image"=> "required",
+            'numero_telaio' => 'required',
+            'model' => 'required|min:3',
+            'porte' => 'required|integer|max:5',
+            'data_immatricolazione' => 'required|date',
+            'marca' => 'required|min:3',
+            'alimentazione' => 'required|min:3',
+            'prezzo' => 'required|numeric|min:4',
+        ]);
+        
         $car = new Car();
+            $car->image= $data["image"];
             $car->numero_telaio= $data["numero_telaio"];
             $car->model=$data["model"]; 
             $car->porte=$data["porte"];
@@ -46,7 +59,9 @@ class CarController extends Controller
             $car->alimentazione=$data["alimentazione"];
             $car->prezzo=$data["prezzo"];
             $car->save();
-
+            
+            
+            
             return redirect()->route("cars.show", $car->id);
     }
 
