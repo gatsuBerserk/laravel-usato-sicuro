@@ -56,7 +56,8 @@
     </div>  
 @endsection
 
-@section('content')
+{{-- funzione spostata in app.js --}}
+{{-- @section('content')
     <script>
         const deleteForms = document.querySelectorAll('.delete');
             deleteForms.forEach(singleForm => {
@@ -69,4 +70,4 @@
                 })
             });
     </script>   
-@endsection
+@endsection --}}
