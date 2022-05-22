@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>
-        creazione nuova auto
+        Aggiungi una nuova auto
     </h1>
     <form action="{{route("cars.store")}}" method="POST">
         @csrf

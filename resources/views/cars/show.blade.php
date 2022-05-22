@@ -11,7 +11,7 @@
         <h1>
             Auto Singola
         </h1>
-        <a href="{{route("home")}}">Home page</a>
+        <a href="{{route("welcome")}}">Home page</a>
         <a href="{{route("cars.index")}}">Lista Completa</a>
         <h3>
             {{$car->model}} - {{$car->marca}}

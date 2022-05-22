@@ -25,9 +25,6 @@ class CarsTableSeeder extends Seeder
             $car->alimentazione=$faker->randomElement(['Benzina','Diesel','GPL','Metano','Vino']);
             $car->prezzo=$faker->randomFloat(2,8000, 100000);
             $car->save();
-
-
-
         }
     }
 }
