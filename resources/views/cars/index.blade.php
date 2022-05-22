@@ -28,7 +28,7 @@
                     <div class="col-3"> 
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
-                            <div class="col-md-4">
+                            <div class="col-md-4 d-flex align-items-center">
                                 <img src="{{$car->image}}" class="img-fluid rounded-start" alt="{{$car->model}}">
                             </div>
                             <div class="col-md-8">

@@ -26,7 +26,7 @@
             </div>
     
             <div class="car-card p-2 col-8">
-                <div class="car-img">
+                <div class="car-img d-flex justify-content-center">
                     <img class="mb-2" src="{{$car->image}}" alt="{{$car->model}}">
                 </div>
                 <div class="d-flex flex-column align-items-center mb-4">
