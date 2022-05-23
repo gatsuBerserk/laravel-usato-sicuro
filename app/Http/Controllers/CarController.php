@@ -44,7 +44,6 @@ class CarController extends Controller
             'model' => 'required|min:3',
             'porte' => 'required|integer|max:5',
             'data_immatricolazione' => 'required|date',
-            'marca' => 'required|min:3',
             'alimentazione' => 'required|min:3',
             'prezzo' => 'required|numeric|min:4',
         ]);
@@ -108,7 +107,6 @@ class CarController extends Controller
             'model' => 'required|min:3',
             'porte' => 'required|integer|max:5|numeric',
             'data_immatricolazione' => 'required|date',
-            'marca' => 'required|min:3',
             'alimentazione' => 'required|min:3',
             'prezzo' => 'required|numeric|min:4',
         ]);

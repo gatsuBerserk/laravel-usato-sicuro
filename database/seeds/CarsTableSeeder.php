@@ -22,9 +22,10 @@ class CarsTableSeeder extends Seeder
             $car->model=$faker->word(20,true); 
             $car->porte=$faker->numberBetween(2, 5);
             $car->data_immatricolazione=$faker->date("Y-m-d");
-            $car->marca=$faker->randomElement(['renault','citroen','ford','maserati','hummer']);
+            // $car->marca=$faker->randomElement(['renault','citroen','ford','maserati','hummer']);
             $car->alimentazione=$faker->randomElement(['Benzina','Diesel','GPL','Metano','Vino']);
             $car->prezzo=$faker->randomFloat(2,8000, 100000);
+            $car->brand_id=$faker->numberBetween(1, 12);
             $car->save();
         }
     }
